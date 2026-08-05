@@ -192,7 +192,7 @@ class VerifierAgent:
             actions.append("review_carrier_delay")
         if primary in {"canceled_order_paid", "unavailable_order_paid"}:
             actions.append("verify_refund_completion")
-        if len(seller_ids) >= 2 and refund > 0:
+        if len(seller_ids) >= 2:
             actions.append("coordinate_multi_seller_case")
         if len(payments) >= 2 and primary != "valid_split_payment":
             actions.append("verify_payment_allocation")

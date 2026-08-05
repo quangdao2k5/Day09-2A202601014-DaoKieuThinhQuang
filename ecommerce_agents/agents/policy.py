@@ -96,7 +96,7 @@ class PolicyAgent:
             actions.append("review_carrier_delay")
         if primary in {"canceled_order_paid", "unavailable_order_paid"}:
             actions.append("verify_refund_completion")
-        if order_facts["seller_count"] >= 2 and refund > 0:
+        if order_facts["seller_count"] >= 2:
             actions.append("coordinate_multi_seller_case")
         if payment_count >= 2 and primary != "valid_split_payment":
             actions.append("verify_payment_allocation")
