@@ -1,6 +1,6 @@
 {
-  "run_id": "c703d19f84d94c4aaf1f60f5352ab28a",
-  "generated_at": "2026-08-05T08:38:13.459655+00:00",
+  "run_id": "72d320eaa99c444d9849e43b0e1118b9",
+  "generated_at": "2026-08-05T08:33:06.728154+00:00",
   "policy_version": "EC_POLICY_V2",
   "model": {
     "provider": "openrouter",
@@ -19,7 +19,7 @@
   "runtime": {
     "python_version": "3.14.3",
     "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
-    "duration_ms": 92958.0
+    "duration_ms": 72901.69
   },
   "artifacts": {
     "case_count": 50,
@@ -33,7 +33,7 @@
     },
     "trace_path": "logging/trace.jsonl",
     "output_directory": "output",
-    "output_digest": "ef844f7acc7d42075d004f62961f0c8d58fde5856ced12a43386c95269a7dc1e"
+    "output_digest": "ca873599530f33646e186f0115a8d36267c4c774fe465e0ef9cab35e8b2bc659"
   },
   "security": {
     "api_key_source": ".env:OPENROUTER_API_KEY",
