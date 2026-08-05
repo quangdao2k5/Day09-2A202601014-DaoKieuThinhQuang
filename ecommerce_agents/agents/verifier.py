@@ -125,7 +125,7 @@ class VerifierAgent:
             "payment_total_brl": decimal_to_json(payment_total),
             "difference_brl": decimal_to_json(difference),
             "reconciled": reconciled,
-            "payment_types": stable_unique(row["payment_type"] for row in payments),
+            "payment_types": [row["payment_type"] for row in payments],
         }
 
         delivered = order["order_delivered_customer_date"] or None

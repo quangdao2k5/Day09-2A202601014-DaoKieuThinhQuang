@@ -66,6 +66,7 @@
     "reconciled": true,
     "payment_types": [
       "voucher",
+      "voucher",
       "credit_card"
     ]
   },
