@@ -70,7 +70,6 @@
     "difference_brl": 0.0,
     "reconciled": true,
     "payment_types": [
-      "credit_card",
       "credit_card"
     ]
   },

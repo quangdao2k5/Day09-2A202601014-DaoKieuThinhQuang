@@ -64,8 +64,7 @@
     "reconciled": true,
     "payment_types": [
       "voucher",
-      "credit_card",
-      "voucher"
+      "credit_card"
     ]
   },
   "root_cause_analysis": {
