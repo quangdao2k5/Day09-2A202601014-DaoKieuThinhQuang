@@ -99,6 +99,28 @@ class EndToEndTests(unittest.TestCase):
             self.assertEqual(delivery["seller_handoff_analysis"], [])
             self.assertEqual(delivery["late_handoff_seller_ids"], [])
 
+            no_action_multi_seller = [
+                row
+                for row in outputs
+                if row["case_assessment"]["case_status"] == "no_action"
+                and len(row["affected_entities"]["seller_ids"]) >= 2
+            ]
+            self.assertEqual(len(no_action_multi_seller), 12)
+            self.assertTrue(
+                all(
+                    "coordinate_multi_seller_case" not in row["resolution_actions"]
+                    for row in no_action_multi_seller
+                )
+            )
+            self.assertTrue(
+                all(
+                    "coordinate_multi_seller_case" in row["resolution_actions"]
+                    for row in outputs
+                    if row["case_assessment"]["case_status"] == "action_required"
+                    and len(row["affected_entities"]["seller_ids"]) >= 2
+                )
+            )
+
     def test_submission_zip_keeps_output_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / "submission.zip"
