@@ -318,4 +318,4 @@ Commit source/input trước, sau đó chạy:
 python3 -m ecommerce_agents.cli package --destination submission_output.zip
 ```
 
-Lệnh package từ chối chạy nếu source/input còn thay đổi chưa commit, đồng thời kiểm tra ZIP có đúng 50 JSON, không lỗi CRC và không vượt 5 MB. ZIP không chứa source, `.env`, trace, metadata hoặc thư mục cha `output/`.
+Lệnh package từ chối chạy nếu source/input còn thay đổi chưa commit, đồng thời kiểm tra ZIP có đúng `output/EC_001.json` đến `output/EC_050.json`, không lỗi CRC và không vượt 5 MB. ZIP không chứa source, `.env`, trace, metadata hoặc file lạ khác.

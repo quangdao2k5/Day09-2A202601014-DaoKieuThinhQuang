@@ -3,10 +3,13 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+import zipfile
 from collections import Counter
+from argparse import Namespace
 from pathlib import Path
 
 from ecommerce_agents.config import MODEL_PARAMETER_BILLION
+from ecommerce_agents.cli import package_command
 from ecommerce_agents.coordinator import Coordinator
 from ecommerce_agents.repository import OlistRepository
 from ecommerce_agents.utils import hours_between
@@ -77,6 +80,23 @@ class EndToEndTests(unittest.TestCase):
             self.assertGreater(len(trace_rows), 500)
             metadata = json.loads((temp / "logging" / "metadata.json").read_text())
             self.assertEqual(metadata["artifacts"]["case_count"], 50)
+
+    def test_submission_zip_keeps_output_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / "submission.zip"
+            result = package_command(
+                Namespace(
+                    root=ROOT,
+                    destination=destination,
+                    allow_dirty_source=True,
+                )
+            )
+            self.assertEqual(result, 0)
+            with zipfile.ZipFile(destination) as archive:
+                self.assertEqual(
+                    sorted(archive.namelist()),
+                    [f"output/EC_{index:03d}.json" for index in range(1, 51)],
+                )
 
 
 if __name__ == "__main__":

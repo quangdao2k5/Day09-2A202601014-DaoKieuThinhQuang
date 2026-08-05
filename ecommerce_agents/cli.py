@@ -72,17 +72,18 @@ def package_command(args: argparse.Namespace) -> int:
         )
         return 2
     files = sorted((args.root / "output").glob("EC_*.json"))
-    expected = [f"EC_{index:03d}.json" for index in range(1, 51)]
-    if [path.name for path in files] != expected:
+    expected_files = [f"EC_{index:03d}.json" for index in range(1, 51)]
+    if [path.name for path in files] != expected_files:
         print("output/ does not contain exactly 50 expected JSON files", file=sys.stderr)
         return 1
+    expected_archive = [f"output/{name}" for name in expected_files]
     destination = args.destination.resolve()
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
-            archive.write(path, arcname=path.name)
+            archive.write(path, arcname=f"output/{path.name}")
     with zipfile.ZipFile(destination) as archive:
         names = sorted(archive.namelist())
-        if names != expected or archive.testzip() is not None:
+        if names != expected_archive or archive.testzip() is not None:
             raise RuntimeError("ZIP verification failed")
     size = destination.stat().st_size
     if size > 5 * 1024 * 1024:
