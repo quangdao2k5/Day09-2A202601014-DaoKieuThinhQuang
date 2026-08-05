@@ -51,6 +51,9 @@ class EndToEndTests(unittest.TestCase):
             )
             outputs = coordinator.run(expected_count=50)
             self.assertEqual(len(outputs), 50)
+            self.assertTrue(
+                all(row["case_assessment"]["confidence"] == 0.92 for row in outputs)
+            )
             self.assertEqual(
                 Counter(row["case_assessment"]["primary_issue"] for row in outputs),
                 {

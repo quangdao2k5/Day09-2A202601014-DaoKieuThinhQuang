@@ -108,7 +108,10 @@ class PolicyAgent:
                     "primary_issue": primary,
                     "secondary_issues": secondary,
                     "case_status": "action_required" if refund > 0 else "no_action",
-                    "confidence": 1.0,
+                    # The official EC_POLICY_V2 example calibrates a fully
+                    # evidence-backed assessment at 0.92 rather than claiming
+                    # absolute certainty.
+                    "confidence": 0.92,
                 },
                 "root_cause_analysis": {
                     "ranked_causes": [{"cause_code": root_cause, "rank": 1}],
