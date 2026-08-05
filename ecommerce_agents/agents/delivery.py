@@ -18,7 +18,11 @@ class DeliveryAgent:
         seller_ids = stable_unique(row["seller_id"] for row in items)
         analysis: list[dict[str, object]] = []
         late_sellers: list[str] = []
-        for seller_id in seller_ids:
+        # Without a carrier handoff timestamp, there is no observable event to
+        # compare with seller deadlines. Emitting late_handoff=False would turn
+        # missing evidence into an unsupported factual conclusion.
+        analyzable_seller_ids = seller_ids if carrier is not None else []
+        for seller_id in analyzable_seller_ids:
             limits = [row["shipping_limit_date"] for row in items if row["seller_id"] == seller_id]
             earliest_limit = min(limits) if limits else None
             handoff_variance = hours_between(carrier, earliest_limit)

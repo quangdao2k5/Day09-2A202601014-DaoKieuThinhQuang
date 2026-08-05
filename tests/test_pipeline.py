@@ -91,6 +91,14 @@ class EndToEndTests(unittest.TestCase):
             self.assertIsNone(reconciliation["difference_brl"])
             self.assertIsNone(reconciliation["reconciled"])
 
+            canceled_without_carrier = next(
+                row for row in outputs if row["case_id"] == "EC_004"
+            )
+            delivery = canceled_without_carrier["delivery_analysis"]
+            self.assertIsNone(delivery["carrier_handoff_at"])
+            self.assertEqual(delivery["seller_handoff_analysis"], [])
+            self.assertEqual(delivery["late_handoff_seller_ids"], [])
+
     def test_submission_zip_keeps_output_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / "submission.zip"
