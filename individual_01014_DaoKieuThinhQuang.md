@@ -38,7 +38,7 @@
 | Áp dụng policy cho 50 case | `output/EC_*.json` | Đủ cả 6 primary issue, 34 action-required và 16 no-action | `python3 scripts/inspect_cases.py` |
 | Kiểm tra output độc lập | `VerifierAgent` | 50/50 case pass, không có false evidence ID | `python3 -m ecommerce_agents.cli validate` |
 | Model audit ≤10B | `logging/metadata.json` | Qwen3-8B 8,2B; 50/50 audit approved | Lọc event `llm_read_only_audit` trong trace |
-| Regression test | `tests/test_pipeline.py` | 4/4 test pass | `python3 -m unittest discover -s tests -v` |
+| Regression test | `tests/test_pipeline.py` | 5/5 test pass | `python3 -m unittest discover -s tests -v` |
 
 Output cụ thể của phần việc là 50 JSON hợp lệ trong `output/`, tổng refund đề xuất 3.437,76 BRL. Trace mới nhất có 802 event, gồm 50 model-audit event với 50 request ID khác nhau và không có `case_failed` hoặc `verification_failed`.
 
@@ -73,8 +73,8 @@ python3 -m ecommerce_agents.cli validate
 python3 scripts/inspect_cases.py
 ```
 
-- **Kết quả mong đợi:** 4 tests pass, 50 case complete, 50 model audit approved, validator không có lỗi.
-- **Kết quả thực tế:** 4/4 tests pass; 50/50 JSON pass; 50/50 audit approved; 34 action-required, 16 no-action.
+- **Kết quả mong đợi:** 5 tests pass, 50 case complete, 50 model audit approved, validator không có lỗi.
+- **Kết quả thực tế:** 5/5 tests pass; 50/50 JSON pass; 50/50 audit approved; 34 action-required, 16 no-action.
 - **Artifact/log:** `output/`, `logging/trace.jsonl`, `logging/metadata.json`; không chứa secret.
 
 ## 5. Một quyết định kỹ thuật quan trọng
