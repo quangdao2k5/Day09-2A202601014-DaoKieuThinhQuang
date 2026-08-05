@@ -195,11 +195,6 @@ class Coordinator:
         affected["payment_ids"] = [
             f"{order_id}:{row['payment_sequential']}" for row in payment_rows[:5]
         ]
-        affected["seller_ids"] = [
-            party["party_id"]
-            for party in policy_result.facts["responsible_parties"]
-            if party["party_type"] == "seller"
-        ][:3]
         output = {
             "case_id": case_id,
             "case_assessment": policy_result.output["case_assessment"],

@@ -17,7 +17,10 @@
       "cc8778d76e567b45082b7f52bce23095:1",
       "cc8778d76e567b45082b7f52bce23095:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "de722cd6dad950a92b7d4f82673f8833",
+      "1c68394e931a64f90ea236c5ea590300"
+    ],
     "payment_ids": [
       "cc8778d76e567b45082b7f52bce23095:1"
     ]

@@ -18,7 +18,10 @@
       "ccec592b58e122dc2bfc2305152d9603:1",
       "ccec592b58e122dc2bfc2305152d9603:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "845e8036c3f7bf62099352f5ed910240",
+      "8a432f4e5b471f8da497d7dc517666e2"
+    ],
     "payment_ids": [
       "ccec592b58e122dc2bfc2305152d9603:1",
       "ccec592b58e122dc2bfc2305152d9603:4",

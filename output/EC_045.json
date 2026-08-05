@@ -18,7 +18,10 @@
       "fe64170e936bc5f6a6a41def260984b9:1",
       "fe64170e936bc5f6a6a41def260984b9:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "da8622b14eb17ae2831f4ac5b9dab84a",
+      "0241d4d5d36f10f80c644447315af0bd"
+    ],
     "payment_ids": [
       "fe64170e936bc5f6a6a41def260984b9:1"
     ]

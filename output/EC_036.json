@@ -18,7 +18,10 @@
       "201797d3f567dc70cc5732ecf055e346:1",
       "201797d3f567dc70cc5732ecf055e346:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "95f83f51203c626648c875dd41874c7f",
+      "23613d49c3ac2bd302259e55c06c050c"
+    ],
     "payment_ids": [
       "201797d3f567dc70cc5732ecf055e346:2",
       "201797d3f567dc70cc5732ecf055e346:1"

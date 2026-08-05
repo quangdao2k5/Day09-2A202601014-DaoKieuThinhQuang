@@ -17,7 +17,9 @@
       "9d0516ad96d793d308cec3c5929ed649:1",
       "9d0516ad96d793d308cec3c5929ed649:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "a1043bafd471dff536d0c462352beb48"
+    ],
     "payment_ids": [
       "9d0516ad96d793d308cec3c5929ed649:1"
     ]

@@ -15,7 +15,9 @@
     "item_ids": [
       "2cfc79d9582e9135c0a9b61fa60e6b21:1"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "dbc22125167c298ef99da25668e1011f"
+    ],
     "payment_ids": [
       "2cfc79d9582e9135c0a9b61fa60e6b21:1"
     ]

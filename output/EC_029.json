@@ -20,7 +20,10 @@
       "b69321fb7d3000994c5a2b55c4f3cb01:1",
       "b69321fb7d3000994c5a2b55c4f3cb01:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "4a3ca9315b744ce9f8e9374361493884",
+      "d20b021d3efdf267a402c402a48ea64b"
+    ],
     "payment_ids": [
       "b69321fb7d3000994c5a2b55c4f3cb01:2",
       "b69321fb7d3000994c5a2b55c4f3cb01:1"

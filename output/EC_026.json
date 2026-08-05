@@ -16,7 +16,9 @@
       "9b4fc5c379134e1329bd48641ba285e3:1",
       "9b4fc5c379134e1329bd48641ba285e3:2"
     ],
-    "seller_ids": [],
+    "seller_ids": [
+      "8132b9bd16876e1b0f8808d43825dd48"
+    ],
     "payment_ids": [
       "9b4fc5c379134e1329bd48641ba285e3:1"
     ]
