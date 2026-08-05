@@ -6,7 +6,7 @@
 | --- | --- |
 | Họ và tên | Đào Kiều Thịnh Quang |
 | MSSV | 2A202601014 |
-| Khóa/Lớp | K4 / E403 |
+| Khóa/Lớp | K4 / D305 |
 | Vai trò chính | Coordinator, Policy & Verifier, tích hợp end-to-end |
 | Ngày hoàn thành | 2026-08-05 |
 
