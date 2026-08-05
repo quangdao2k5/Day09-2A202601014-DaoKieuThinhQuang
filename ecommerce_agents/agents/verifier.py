@@ -173,6 +173,11 @@ class VerifierAgent:
             late_delivery,
             late_sellers,
         )
+        affected["seller_ids"] = [
+            party["party_id"]
+            for party in parties
+            if party["party_type"] == "seller"
+        ][:3]
         secondary: list[str] = []
         if len(items) >= 2:
             secondary.append("multi_item_order")
