@@ -1,0 +1,42 @@
+{
+  "run_id": "146106cf43e14f1da23d8ef99a5dae32",
+  "generated_at": "2026-08-05T08:08:58.816819+00:00",
+  "policy_version": "EC_POLICY_V2",
+  "model": {
+    "provider": "openrouter",
+    "name": "qwen/qwen3-8b",
+    "parameter_count_billion": 8.2,
+    "maximum_allowed_billion": 10.0,
+    "role": "read-only final consistency audit",
+    "llm_audit_enabled": true,
+    "successful_audits": 50
+  },
+  "framework": {
+    "name": "custom-python-a2a",
+    "version": "1.0.0",
+    "dependencies": "python-standard-library-only"
+  },
+  "runtime": {
+    "python_version": "3.14.3",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "duration_ms": 74728.84
+  },
+  "artifacts": {
+    "case_count": 50,
+    "primary_issue_counts": {
+      "canceled_order_paid": 8,
+      "late_delivery_logistics": 10,
+      "late_delivery_seller": 10,
+      "unavailable_order_paid": 6,
+      "unsupported_late_claim": 8,
+      "valid_split_payment": 8
+    },
+    "trace_path": "logging/trace.jsonl",
+    "output_directory": "output",
+    "output_digest": "5d751920fcc3914a7d35cbdce1c289e0044e3be506cff84e753824d792701339"
+  },
+  "security": {
+    "api_key_source": ".env:OPENROUTER_API_KEY",
+    "secret_logged": false
+  }
+}
