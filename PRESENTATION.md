@@ -1,5 +1,7 @@
 # Kịch bản trình bày pipeline — E-commerce Dispute Resolution
 
+![Sơ đồ pipeline](pipeline-overview.svg)
+
 ## 1. Phiên bản nói nhanh trong 30 giây
 
 Em xây dựng một pipeline multi-agent để điều tra 50 tranh chấp thương mại điện tử từ dữ liệu Olist. Thay vì cho LLM đọc toàn bộ dữ liệu rồi tự sinh JSON, em chia hệ thống thành các agent theo domain: order/product, customer, payment và delivery. Các agent bàn giao facts cho Policy Agent áp dụng `EC_POLICY_V2`; sau đó một Verifier Agent độc lập đọc lại CSV để kiểm tra toàn bộ kết quả. Qwen3-8B, dưới giới hạn 10B, chỉ audit consistency ở bước cuối và không được sửa output. Nhờ vậy pipeline vừa có handoff multi-agent thật, vừa tránh hallucination ID, timestamp và số tiền.

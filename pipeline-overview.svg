@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <defs>
+    <style>
+      .title { font: 700 38px Arial, sans-serif; fill: #102a43; }
+      .subtitle { font: 400 20px Arial, sans-serif; fill: #486581; }
+      .box-title { font: 700 22px Arial, sans-serif; fill: #102a43; }
+      .box-text { font: 400 17px Arial, sans-serif; fill: #243b53; }
+      .small { font: 400 15px Arial, sans-serif; fill: #486581; }
+      .step { font: 700 20px Arial, sans-serif; fill: white; text-anchor: middle; dominant-baseline: middle; }
+      .arrow { stroke: #334e68; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .dash { stroke: #627d98; stroke-width: 3; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrowheadGray); }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#334e68"/>
+    </marker>
+    <marker id="arrowheadGray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#627d98"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#102a43" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1800" height="1000" fill="#f7fafc"/>
+  <text x="70" y="62" class="title">Pipeline Multi-Agent xử lý tranh chấp thương mại điện tử</text>
+  <text x="70" y="96" class="subtitle">Facts được tính bằng Python → Policy ra quyết định → Verifier kiểm tra độc lập → Model nhỏ chỉ audit</text>
+
+  <!-- Input -->
+  <rect x="55" y="180" width="280" height="190" rx="22" fill="#e3f2fd" stroke="#1976d2" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="80" cy="205" r="19" fill="#1976d2"/>
+  <text x="80" y="205" class="step">1</text>
+  <text x="105" y="216" class="box-title">INPUT &amp; DATA</text>
+  <text x="80" y="258" class="box-text">• 50 input JSON</text>
+  <text x="80" y="290" class="box-text">• claimed_order_id</text>
+  <text x="80" y="322" class="box-text">• 9 bảng Olist CSV</text>
+  <text x="80" y="354" class="small">Dữ liệu chỉ đọc, có thể kiểm chứng</text>
+
+  <!-- Coordinator -->
+  <rect x="410" y="205" width="270" height="150" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="435" cy="230" r="19" fill="#2563eb"/>
+  <text x="435" y="230" class="step">2</text>
+  <text x="460" y="241" class="box-title">COORDINATOR</text>
+  <text x="440" y="282" class="box-text">Kiểm tra input</text>
+  <text x="440" y="314" class="box-text">Giao việc + nhận handoff</text>
+  <text x="440" y="340" class="small">Chỉ Coordinator được ghi output</text>
+
+  <!-- Domain agent region -->
+  <rect x="760" y="125" width="980" height="325" rx="28" fill="#fffdf3" stroke="#d4a017" stroke-width="3"/>
+  <circle cx="790" cy="155" r="19" fill="#d4a017"/>
+  <text x="790" y="155" class="step">3</text>
+  <text x="820" y="165" class="box-title">4 DOMAIN AGENTS chạy theo phạm vi dữ liệu riêng</text>
+
+  <rect x="795" y="205" width="210" height="185" rx="18" fill="#fff3cd" stroke="#e0a800" stroke-width="2"/>
+  <text x="817" y="238" class="box-title">Order &amp; Product</text>
+  <text x="817" y="275" class="box-text">Order, item</text>
+  <text x="817" y="305" class="box-text">Seller, product</text>
+  <text x="817" y="335" class="box-text">Category</text>
+  <text x="817" y="370" class="small">→ affected entities</text>
+
+  <rect x="1030" y="205" width="210" height="185" rx="18" fill="#fff3cd" stroke="#e0a800" stroke-width="2"/>
+  <text x="1052" y="238" class="box-title">Customer</text>
+  <text x="1052" y="275" class="box-text">Unique customer</text>
+  <text x="1052" y="305" class="box-text">Related orders</text>
+  <text x="1052" y="370" class="small">→ customer context</text>
+
+  <rect x="1265" y="205" width="210" height="185" rx="18" fill="#fff3cd" stroke="#e0a800" stroke-width="2"/>
+  <text x="1287" y="238" class="box-title">Payment</text>
+  <text x="1287" y="275" class="box-text">Item + freight</text>
+  <text x="1287" y="305" class="box-text">Payment total</text>
+  <text x="1287" y="335" class="box-text">Reconciliation</text>
+  <text x="1287" y="370" class="small">→ Decimal facts</text>
+
+  <rect x="1500" y="205" width="210" height="185" rx="18" fill="#fff3cd" stroke="#e0a800" stroke-width="2"/>
+  <text x="1522" y="238" class="box-title">Delivery</text>
+  <text x="1522" y="275" class="box-text">Delivery variance</text>
+  <text x="1522" y="305" class="box-text">Seller deadline</text>
+  <text x="1522" y="335" class="box-text">Late handoff</text>
+  <text x="1522" y="370" class="small">→ timestamp facts</text>
+
+  <!-- Decision row -->
+  <rect x="630" y="560" width="290" height="170" rx="22" fill="#ede9fe" stroke="#7c3aed" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="655" cy="585" r="19" fill="#7c3aed"/>
+  <text x="655" y="585" class="step">4</text>
+  <text x="680" y="596" class="box-title">POLICY AGENT</text>
+  <text x="660" y="638" class="box-text">Áp dụng EC_POLICY_V2</text>
+  <text x="660" y="670" class="box-text">Issue + responsibility</text>
+  <text x="660" y="702" class="box-text">Refund + actions</text>
+
+  <rect x="1010" y="560" width="290" height="170" rx="22" fill="#dcfce7" stroke="#16a34a" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="1035" cy="585" r="19" fill="#16a34a"/>
+  <text x="1035" y="585" class="step">5</text>
+  <text x="1060" y="596" class="box-title">VERIFIER AGENT</text>
+  <text x="1040" y="638" class="box-text">Đọc lại raw CSV</text>
+  <text x="1040" y="670" class="box-text">Dựng expected độc lập</text>
+  <text x="1040" y="702" class="box-text">Sai → fail-fast</text>
+
+  <rect x="1390" y="560" width="310" height="170" rx="22" fill="#f0fdf4" stroke="#22c55e" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="1415" cy="585" r="19" fill="#22c55e"/>
+  <text x="1415" y="585" class="step">6</text>
+  <text x="1440" y="596" class="box-title">QWEN3-8B AUDIT</text>
+  <text x="1420" y="638" class="box-text">Consistency read-only</text>
+  <text x="1420" y="670" class="box-text">Không sửa JSON</text>
+  <text x="1420" y="702" class="small">8.2B ≤ giới hạn 10B</text>
+
+  <!-- Artifacts -->
+  <rect x="425" y="805" width="300" height="125" rx="20" fill="#eef2ff" stroke="#6366f1" stroke-width="3"/>
+  <text x="455" y="845" class="box-title">TRACE &amp; METADATA</text>
+  <text x="455" y="882" class="box-text">802 events, handoff digest</text>
+  <text x="455" y="912" class="small">Không ghi API key/secret</text>
+
+  <rect x="1195" y="805" width="505" height="125" rx="20" fill="#d1fae5" stroke="#059669" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="1220" cy="830" r="19" fill="#059669"/>
+  <text x="1220" y="830" class="step">7</text>
+  <text x="1250" y="842" class="box-title">50 OUTPUT JSON</text>
+  <text x="1225" y="882" class="box-text">34 action-required · 16 no-action · validator pass</text>
+  <text x="1225" y="914" class="small">Chỉ folder output/ được nén để nộp</text>
+
+  <!-- Arrows -->
+  <path d="M335 275 H410" class="arrow"/>
+  <path d="M680 275 H760" class="arrow"/>
+  <path d="M1250 450 V500 H775 V560" class="arrow"/>
+  <path d="M920 645 H1010" class="arrow"/>
+  <path d="M1300 645 H1390" class="arrow"/>
+  <path d="M1545 730 V770 H1445 V805" class="arrow"/>
+  <path d="M545 355 V805" class="dash"/>
+
+  <!-- Labels -->
+  <rect x="1070" y="472" width="360" height="42" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="1250" y="499" class="small" text-anchor="middle">Handoff facts — không handoff suy đoán</text>
+  <text x="950" y="968" class="subtitle" text-anchor="middle">Nguyên tắc: LLM hỗ trợ audit; dữ liệu, tiền, thời gian và policy luôn deterministic.</text>
+</svg>
