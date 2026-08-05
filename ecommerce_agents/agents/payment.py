@@ -24,8 +24,10 @@ class PaymentAgent:
             difference = money(payment_total - expected_total)
             reconciled: bool | None = abs(difference) <= Decimal("0.10")
         else:
-            item_total = None
-            freight_total = None
+            # Empty sums are zero, while reconciliation remains unknown because
+            # there are no item rows to establish an expected order total.
+            item_total = Decimal("0.00")
+            freight_total = Decimal("0.00")
             expected_total = None
             difference = None
             reconciled = None

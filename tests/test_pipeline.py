@@ -81,6 +81,16 @@ class EndToEndTests(unittest.TestCase):
             metadata = json.loads((temp / "logging" / "metadata.json").read_text())
             self.assertEqual(metadata["artifacts"]["case_count"], 50)
 
+            unavailable_without_items = next(
+                row for row in outputs if row["case_id"] == "EC_012"
+            )
+            reconciliation = unavailable_without_items["payment_reconciliation"]
+            self.assertEqual(reconciliation["item_total_brl"], 0.0)
+            self.assertEqual(reconciliation["freight_total_brl"], 0.0)
+            self.assertIsNone(reconciliation["expected_total_brl"])
+            self.assertIsNone(reconciliation["difference_brl"])
+            self.assertIsNone(reconciliation["reconciled"])
+
     def test_submission_zip_keeps_output_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / "submission.zip"

@@ -113,7 +113,9 @@ class VerifierAgent:
             difference = money(payment_total - expected_total)
             reconciled: bool | None = abs(difference) <= Decimal("0.10")
         else:
-            item_total = freight_total = expected_total = difference = None
+            item_total = Decimal("0.00")
+            freight_total = Decimal("0.00")
+            expected_total = difference = None
             reconciled = None
         payment_output = {
             "currency": "BRL",
