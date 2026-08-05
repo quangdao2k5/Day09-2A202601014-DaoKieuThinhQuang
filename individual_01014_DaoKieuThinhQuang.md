@@ -83,7 +83,7 @@ python3 scripts/inspect_cases.py
 - **Các phương án đã cân nhắc:** (1) để LLM sinh toàn bộ JSON; (2) rule engine đơn khối; (3) domain agents deterministic kết hợp model audit chỉ đọc.
 - **Phương án đã chọn:** Domain agents có contract/handoff thật, deterministic policy + independent verifier, Qwen3-8B chỉ audit cuối.
 - **Lý do:** Phương án này giữ đúng tinh thần A2A và trace thật, đồng thời tránh hallucination ID/số tiền. Kết quả reproducible khi chạy không model và không thay đổi khi bật audit model.
-- **Bằng chứng quyết định phù hợp:** Output digest của lượt chạy cuối là `ca873599530f33646e186f0115a8d36267c4c774fe465e0ef9cab35e8b2bc659`; validator pass 50/50 và 50 model audits approved.
+- **Bằng chứng quyết định phù hợp:** Output digest của lượt chạy cuối là `ef844f7acc7d42075d004f62961f0c8d58fde5856ced12a43386c95269a7dc1e`; validator pass 50/50 và 50 model audits approved.
 
 ## 6. Một lỗi hoặc blocker đã xử lý
 

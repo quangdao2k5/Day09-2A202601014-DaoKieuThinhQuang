@@ -99,6 +99,23 @@ class EndToEndTests(unittest.TestCase):
             self.assertEqual(delivery["seller_handoff_analysis"], [])
             self.assertEqual(delivery["late_handoff_seller_ids"], [])
 
+            four_payment_case = next(
+                row for row in outputs if row["case_id"] == "EC_015"
+            )
+            self.assertEqual(
+                four_payment_case["affected_entities"]["payment_ids"],
+                [
+                    "ccec592b58e122dc2bfc2305152d9603:1",
+                    "ccec592b58e122dc2bfc2305152d9603:2",
+                    "ccec592b58e122dc2bfc2305152d9603:3",
+                    "ccec592b58e122dc2bfc2305152d9603:4",
+                ],
+            )
+            self.assertEqual(
+                four_payment_case["payment_reconciliation"]["payment_types"],
+                ["credit_card", "voucher", "voucher", "voucher"],
+            )
+
     def test_submission_zip_keeps_output_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / "submission.zip"

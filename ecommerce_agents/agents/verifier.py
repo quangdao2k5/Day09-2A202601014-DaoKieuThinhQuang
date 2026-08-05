@@ -62,7 +62,10 @@ class VerifierAgent:
         order_id = case["customer_request"]["claimed_order_id"]
         order = repository.require_order(order_id)
         items = list(repository.items_by_order.get(order_id, []))
-        payments = list(repository.payments_by_order.get(order_id, []))
+        payments = sorted(
+            repository.payments_by_order.get(order_id, []),
+            key=lambda row: int(row["payment_sequential"]),
+        )
         scope = case["investigation_scope"]
 
         seller_ids = stable_unique(row["seller_id"] for row in items)
@@ -125,7 +128,7 @@ class VerifierAgent:
             "payment_total_brl": decimal_to_json(payment_total),
             "difference_brl": decimal_to_json(difference),
             "reconciled": reconciled,
-            "payment_types": stable_unique(row["payment_type"] for row in payments),
+            "payment_types": [row["payment_type"] for row in payments],
         }
 
         delivered = order["order_delivered_customer_date"] or None

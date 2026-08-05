@@ -6,16 +6,19 @@ from decimal import Decimal
 
 from .base import AgentResult
 from ..repository import OlistRepository
-from ..utils import decimal_to_json, money, stable_unique
+from ..utils import decimal_to_json, money
 
 
 class PaymentAgent:
     name = "payment_agent"
 
     def run(self, order_id: str, repository: OlistRepository, items: list[dict[str, str]]) -> AgentResult:
-        rows = list(repository.payments_by_order.get(order_id, []))
+        rows = sorted(
+            repository.payments_by_order.get(order_id, []),
+            key=lambda row: int(row["payment_sequential"]),
+        )
         payment_total = money(sum((Decimal(row["payment_value"]) for row in rows), Decimal("0")))
-        payment_types = stable_unique(row["payment_type"] for row in rows)
+        payment_types = [row["payment_type"] for row in rows]
 
         if items:
             item_total = money(sum((Decimal(row["price"]) for row in items), Decimal("0")))
