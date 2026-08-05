@@ -134,7 +134,9 @@ class VerifierAgent:
         delivery_variance = hours_between(delivered, estimated)
         handoff_analysis: list[dict[str, Any]] = []
         late_sellers: list[str] = []
-        analyzable_seller_ids = seller_ids if carrier is not None else []
+        analyzable_seller_ids = (
+            seller_ids if carrier is not None and delivered is not None else []
+        )
         for seller_id in analyzable_seller_ids:
             earliest_limit = min(
                 row["shipping_limit_date"]

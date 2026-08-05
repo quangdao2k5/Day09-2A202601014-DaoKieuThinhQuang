@@ -21,7 +21,9 @@ class DeliveryAgent:
         # Without a carrier handoff timestamp, there is no observable event to
         # compare with seller deadlines. Emitting late_handoff=False would turn
         # missing evidence into an unsupported factual conclusion.
-        analyzable_seller_ids = seller_ids if carrier is not None else []
+        analyzable_seller_ids = (
+            seller_ids if carrier is not None and delivered is not None else []
+        )
         for seller_id in analyzable_seller_ids:
             limits = [row["shipping_limit_date"] for row in items if row["seller_id"] == seller_id]
             earliest_limit = min(limits) if limits else None
